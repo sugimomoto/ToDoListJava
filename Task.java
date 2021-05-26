@@ -1,7 +1,9 @@
+import java.net.PortUnreachableException;
+
 public class Task {
-    private Integer id;
+    public Integer id;
 
-    private String title;
+    public String title;
 
-    private String priority;
+    public String priority;
 }

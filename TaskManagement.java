@@ -14,16 +14,25 @@ public class TaskManagement {
     }
 
     public void UpdateTask(Task task){
+        DeleteTask(task.id);
+        tasks.add(task);
     }
 
-    public void DeleteTask(Task task){
+    public void DeleteTask(Integer taskId){
+        Task taskResult = GetTask(taskId);
+        int index = tasks.indexOf(taskResult);
+        tasks.remove(index);
     }
 
     public List<Task> GetTasks(){
         return tasks;
     }
 
-    public Task GetTask(Integer id){
-        return tasks.get(id);
+    public List<Task> GetTasks(Integer fromIndex, Integer toIndex){
+        return tasks.subList(fromIndex, toIndex);
+    }
+
+    public Task GetTask(Integer taskId){
+        return tasks.stream().filter(task -> taskId.equals(task.id)).findAny().orElse(null);
     }
 }
