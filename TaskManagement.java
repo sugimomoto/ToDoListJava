@@ -22,6 +22,7 @@ public class TaskManagement {
         Task taskResult = GetTask(taskId);
         int index = tasks.indexOf(taskResult);
         tasks.remove(index);
+
     }
 
     public List<Task> GetTasks(){
